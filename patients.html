@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Patients</h2>
+<form method="post" action="{{ url_for('add_patient') }}" class="mb-3">
+  <input type="text" name="name" placeholder="Name" required>
+  <input type="number" name="age" placeholder="Age" required>
+  <select name="gender" required>
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+  </select>
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+<table class="table table-bordered">
+  <thead>
+    <tr><th>ID</th><th>Name</th><th>Age</th><th>Gender</th></tr>
+  </thead>
+  <tbody>
+    {% for patient in patients %}
+    <tr>
+      <td>{{ patient[0] }}</td>
+      <td>{{ patient[1] }}</td>
+      <td>{{ patient[2] }}</td>
+      <td>{{ patient[3] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
