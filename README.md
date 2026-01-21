@@ -1,1 +1,1 @@
-# Hospital-Management-project
+This is a hospital management project
